@@ -7,7 +7,7 @@ import { fetchPosts, selectAllPosts } from './postsSlice';
 import Reactionbutton from './ReactionButton';
 import TimeAgo from './TimeAgo';
 
-const PostExcerpt = ({ post }) => {
+let PostExcerpt = ({ post }) => {
   return(
     <article className='post-excerpt' key={post.id}>
       <h3>{post.title}</h3>
@@ -26,6 +26,8 @@ const PostExcerpt = ({ post }) => {
     </article>
   )
 }
+
+PostExcerpt = React.memo(PostExcerpt)
 
 export default function PostsList() {
   const dispatch= useDispatch()
